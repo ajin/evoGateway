@@ -480,7 +480,7 @@ def process_gwy_message(msg, prev_msg=None) -> None:
 
 
 def print_ramsesrf_gwy_schema(gwy):
-    if gwy.evo is None:
+    if getattr(gwy, "evo", None) is None:
         print("'GWY.tcs' is None. Defaulting to GWY.schema: ")
         print(f"Schema[gateway] = {json.dumps(gwy.schema, indent=4)}\r\n")
         print(f"Params[gateway] = {json.dumps(gwy.params)}\r\n")
